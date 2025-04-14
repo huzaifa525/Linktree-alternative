@@ -1,77 +1,521 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Huzefa Nalkheda Wala</title>
-    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
     <link rel="icon" href="huzefa.jpg" type="image/x-icon" />
-    <script>
-        document.addEventListener("contextmenu", function(e){
-        e.preventDefault();
-        }, false);
-    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <style>
+        :root {
+            --primary-bg: #0c0c14;
+            --card-bg: rgba(31, 31, 64, 0.6);
+            --accent-color: #6d59ff;
+            --text-primary: rgba(255, 255, 255, 0.95);
+            --text-secondary: rgba(255, 255, 255, 0.75);
+            --shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background: linear-gradient(135deg, var(--primary-bg), #20203a);
+            color: var(--text-primary);
+            min-height: 100vh;
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 4rem 1.5rem;
+            overflow-x: hidden;
+            position: relative;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1000px;
+            position: relative;
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            width: 100%;
+            max-width: 580px;
+            padding: 3.5rem 2.5rem;
+            margin-bottom: 2rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: var(--shadow);
+            transform: translateY(30px);
+            opacity: 0;
+            transition: var(--transition);
+        }
+        
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            pointer-events: none;
+        }
+        
+        #profileSection {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 2.5rem;
+        }
+        
+        #profileInfo {
+            flex: 1;
+            padding-left: 2rem;
+        }
+        
+        #profilePicture {
+            width: 140px;
+            height: 140px;
+            border-radius: 30px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: var(--shadow);
+            border: 3px solid rgba(255, 255, 255, 0.1);
+            transition: var(--transition);
+        }
+        
+        #profilePicture:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-color);
+        }
+        
+        #profilePicture img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        #profilePicture:hover img {
+            transform: scale(1.1);
+        }
+        
+        #userName {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(120deg, #fff, #a5a0ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -1px;
+        }
+        
+        #tagline {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.1rem;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+            font-weight: 500;
+            opacity: 0.9;
+        }
+        
+        #bio {
+            line-height: 1.7;
+            margin-bottom: 2.5rem;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+        
+        #skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 2rem;
+        }
+        
+        #skills span {
+            background: rgba(109, 89, 255, 0.15);
+            border: 1px solid rgba(109, 89, 255, 0.3);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.85);
+            font-weight: 500;
+            transition: var(--transition);
+            cursor: default;
+        }
+        
+        #skills span:hover {
+            background: rgba(109, 89, 255, 0.25);
+            transform: translateY(-3px);
+        }
+        
+        #links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+            gap: 15px;
+            width: 100%;
+            margin-bottom: 1.5rem;
+        }
+        
+        .link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 18px;
+            background: rgba(255, 255, 255, 0.07);
+            border-radius: 10px;
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: var(--transition);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .link:hover {
+            background: var(--accent-color);
+            transform: translateY(-3px);
+            box-shadow: 0 7px 20px rgba(109, 89, 255, 0.3);
+        }
+        
+        .link i {
+            font-size: 1.1rem;
+        }
+        
+        #downloadVCard {
+            grid-column: 1 / -1;
+            background: linear-gradient(120deg, #6d59ff, #b15eff);
+            justify-content: center;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            color: white;
+        }
+        
+        #downloadVCard:hover {
+            background: linear-gradient(120deg, #7f6bff, #c979ff);
+            box-shadow: 0 7px 25px rgba(109, 89, 255, 0.5);
+        }
+        
+        #hashtag {
+            margin-top: 2rem;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            font-weight: 500;
+            text-align: center;
+            opacity: 0.7;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+        }
+        
+        #hashtag i {
+            color: #ff5e7d;
+            font-size: 0.8rem;
+        }
+        
+        .quote-container {
+            position: relative;
+            margin: 3rem 0;
+            text-align: center;
+            padding: 0 2rem;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        
+        .quote {
+            font-style: italic;
+            color: var(--text-secondary);
+            font-size: 1rem;
+            position: relative;
+            line-height: 1.8;
+        }
+        
+        .quote::before, .quote::after {
+            content: '"';
+            font-family: Georgia, serif;
+            font-size: 3rem;
+            position: absolute;
+            opacity: 0.2;
+            color: var(--accent-color);
+            line-height: 0;
+        }
+        
+        .quote::before {
+            top: 0.5rem;
+            left: -1.5rem;
+        }
+        
+        .quote::after {
+            bottom: -0.5rem;
+            right: -1.5rem;
+        }
+        
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .card {
+                padding: 2.5rem 1.5rem;
+            }
+            
+            #profileSection {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            #profileInfo {
+                padding-left: 0;
+                margin-top: 1.5rem;
+            }
+            
+            #userName {
+                font-size: 1.8rem;
+            }
+            
+            #tagline {
+                font-size: 1rem;
+            }
+            
+            #links {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            body {
+                padding: 2rem 1rem;
+            }
+            
+            .card {
+                padding: 2rem 1.2rem;
+            }
+            
+            #profilePicture {
+                width: 120px;
+                height: 120px;
+            }
+            
+            #userName {
+                font-size: 1.6rem;
+            }
+        }
+    </style>
 </head>
-
 <body>
-    <section class="animated-background">
-        <div id="stars1"></div>
-        <div id="stars2"></div>
-        <div id="stars3"></div>
-    </section>
-
-    <a id="profilePicture" href="#popup">
-        <img src="huzefa.jpg" alt="Profile Picture">
-    </a>
-
-    <div class="overlay" id="popup">
-        <div class="popup">
-            <div class="popup-photo">
-                <a href="huzefa.jpg" target="_blank">
-                    <img src="huzefa.jpg" alt="Profile Picture">
+    <div class="container">
+        <div class="card">
+            <div id="profileSection">
+                <div id="profilePicture">
+                    <img src="huzefa.jpg" alt="Huzefa Nalkheda Wala">
+                </div>
+                <div id="profileInfo">
+                    <h1 id="userName">Huzefa Nalkheda Wala</h1>
+                    <div id="tagline">Engineering intelligent systems that shape the future</div>
+                </div>
+            </div>
+            
+            <div id="bio">
+                AI Researcher & Product Engineer passionate about building intelligent systems that shape the future. Currently engineering AI-powered solutions at CleverFlow in Dubai. Patent holder with expertise in GenAI and ML. When not exploring algorithms, you'll find me experimenting with recipes, writing, or traveling to discover new perspectives. Always curious, always learning—both in AI and life.
+            </div>
+            
+            <div id="skills">
+                <span>#AIResearch</span>
+                <span>#GenAI</span>
+                <span>#ProductEngineering</span>
+                <span>#MachineLearning</span>
+                <span>#IITRopar</span>
+            </div>
+            
+            <div id="links">
+                <a class="link" href="#" id="downloadVCard">
+                    <i class="fas fa-address-card"></i> Download Contact Card
+                </a>
+                <a class="link" href="https://github.com/huzaifa525" target="_blank">
+                    <i class="fab fa-github"></i> Github
+                </a>
+                <a class="link" href="https://dribbble.com/imhuzaifan" target="_blank">
+                    <i class="fab fa-dribbble"></i> Dribbble
+                </a>
+                <a class="link" href="https://www.linkedin.com/in/huzefanalkheda/" target="_blank">
+                    <i class="fab fa-linkedin"></i> LinkedIn
+                </a>
+                <a class="link" href="https://www.facebook.com/people/Huzefa-Nalkheda-Wala/1005015125615218" target="_blank">
+                    <i class="fab fa-facebook"></i> Facebook
+                </a>
+                <a class="link" href="https://www.instagram.com/imhuzaifan/" target="_blank">
+                    <i class="fab fa-instagram"></i> Instagram
+                </a>
+                <a class="link" href="https://twitter.com/HuzaifaNalkheda" target="_blank">
+                    <i class="fab fa-twitter"></i> Twitter
                 </a>
             </div>
-            <div class="popup-quote">
-                But... the sensation that I've lost something lingers for a longtime after I wake up.
-            </div>
-
-            <a class="popup-close" onclick="history.back()">&times;</a>
+        </div>
+        
+        <div class="quote-container">
+            <div class="quote">But... the sensation that I've lost something lingers for a long time after I wake up.</div>
+        </div>
+        
+        <div id="hashtag">
+            <i class="fas fa-heart"></i> Huzaifa525
         </div>
     </div>
 
-    <div id="userName">
-        @Huzefa Nalkheda Wala 
-    </div>
-
-    <div id="links">
-        
-        <!--<a class="link" href="https://huzaifa525.github.io/Resume/" target="_blank"><i
-                class="fa fa-code">&nbsp;</i>Resume Website</a>-->
-        <a class="link" href="https://github.com/huzaifa525" target="_blank"><i
-                class="fab fa-github">&nbsp;</i>Github</a>
-        <a class="link" href="https://dribbble.com/imhuzaifan" target="_blank"><i
-                class="fab fa-dribble">&nbsp;</i>dribble</a>
-        <a class="link" href="https://www.linkedin.com/in/huzefanalkheda/" target="_blank"><i
-                class="fab fa-linkedin">&nbsp;</i>Linkedin</a>
-        <a class="link" href="https://www.facebook.com/people/Huzefa-Nalkheda-Wala/1005015125615218" target="_blank"><i
-                class="fab fa-facebook">&nbsp;</i>Facebook</a>
-        <a class="link" href="https://www.instagram.com/imhuzaifan/" target="_blank"><i
-                class="fab fa-instagram">&nbsp;</i>Instagram</a>
-        <a class="link" href="https://twitter.com/HuzaifaNalkheda" target="_blank"><i
-                class="fab fa-twitter">&nbsp;</i>Twitter</a>
-       
-    </div>
-
-    <div id="hashtag">
-        #Huzaifa525❤
-    </div>
-<script>
-        document.addEventListener("contextmenu", function(e){
-        e.preventDefault();
-        }, false);
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Prevent right-click
+            document.addEventListener("contextmenu", function(e) {
+                e.preventDefault();
+            }, false);
+            
+            // Create particles
+            const particlesContainer = document.body;
+            const numberOfParticles = 50;
+            
+            for (let i = 0; i < numberOfParticles; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                
+                const size = Math.random() * 5 + 2;
+                const posX = Math.random() * window.innerWidth;
+                const posY = Math.random() * window.innerHeight;
+                const opacity = Math.random() * 0.4 + 0.1;
+                
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                particle.style.left = `${posX}px`;
+                particle.style.top = `${posY}px`;
+                particle.style.opacity = opacity;
+                
+                particlesContainer.appendChild(particle);
+                
+                anime({
+                    targets: particle,
+                    translateY: [
+                        { value: -20, duration: Math.random() * 4000 + 3000 },
+                        { value: 0, duration: Math.random() * 4000 + 3000 }
+                    ],
+                    translateX: [
+                        { value: Math.random() * 30 - 15, duration: Math.random() * 4000 + 2000 },
+                        { value: 0, duration: Math.random() * 4000 + 2000 }
+                    ],
+                    opacity: [
+                        { value: opacity * 1.5, duration: Math.random() * 3000 + 2000 },
+                        { value: opacity, duration: Math.random() * 3000 + 2000 }
+                    ],
+                    easing: 'easeInOutSine',
+                    loop: true
+                });
+            }
+            
+            // Animations for page elements
+            setTimeout(() => {
+                anime({
+                    targets: '.card',
+                    translateY: [30, 0],
+                    opacity: [0, 1],
+                    easing: 'easeOutExpo',
+                    duration: 1000
+                });
+                
+                setTimeout(() => {
+                    anime({
+                        targets: '.quote-container',
+                        opacity: [0, 0.9],
+                        translateY: [20, 0],
+                        easing: 'easeOutExpo',
+                        duration: 800
+                    });
+                    
+                    anime({
+                        targets: '#hashtag',
+                        opacity: [0, 0.7],
+                        translateY: [10, 0],
+                        easing: 'easeOutExpo',
+                        duration: 600,
+                        delay: 200
+                    });
+                }, 400);
+                
+                // Skill tags staggered animation
+                anime({
+                    targets: '#skills span',
+                    translateY: [10, 0],
+                    opacity: [0, 1],
+                    delay: anime.stagger(80),
+                    easing: 'easeOutExpo',
+                    duration: 700,
+                    delay: 300
+                });
+                
+                // Links staggered animation
+                anime({
+                    targets: '.link',
+                    translateY: [10, 0],
+                    opacity: [0, 1],
+                    delay: anime.stagger(100),
+                    easing: 'easeOutExpo',
+                    duration: 600,
+                    delay: 500
+                });
+            }, 200);
+            
+            // vCard Download
+            document.getElementById("downloadVCard").addEventListener("click", function(e) {
+                e.preventDefault();
+                
+                // Create vCard content
+                const vCardContent = `BEGIN:VCARD
+VERSION:3.0
+N:Nalkheda Wala;Huzefa;;;
+FN:Huzefa Nalkheda Wala
+ORG:CleverFlow
+TITLE:AI Product Engineer
+EMAIL:huzaifanalkhedaemp@gmail.com
+TEL;TYPE=CELL:+91 9685595352
+URL;TYPE=LinkedIn:https://www.linkedin.com/in/huzefanalkheda/
+URL;TYPE=GitHub:https://github.com/huzaifa525
+URL;TYPE=Dribbble:https://dribbble.com/imhuzaifan
+URL;TYPE=Instagram:https://www.instagram.com/imhuzaifan/
+URL;TYPE=Twitter:https://twitter.com/HuzaifaNalkheda
+URL;TYPE=Facebook:https://www.facebook.com/people/Huzefa-Nalkheda-Wala/1005015125615218
+ADR;TYPE=WORK:;;CleverFlow;Dubai;United Arab Emirates;;
+NOTE:AI Researcher & Product Engineer passionate about building intelligent systems that shape the future. Patent holder with expertise in GenAI and ML.
+END:VCARD`;
+                
+                // Create blob and download link
+                const blob = new Blob([vCardContent], { type: 'text/vcard' });
+                const url = window.URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                
+                a.style.display = 'none';
+                a.href = url;
+                a.download = 'huzefa_nalkheda_wala.vcf';
+                document.body.appendChild(a);
+                a.click();
+                
+                // Clean up
+                window.URL.revokeObjectURL(url);
+                document.body.removeChild(a);
+                
+                // Button animation
+                anime({
+                    targets: '#downloadVCard',
+                    scale: [1, 0.97, 1],
+                    duration: 600,
+                    easing: 'easeInOutSine'
+                });
+            });
+        });
     </script>
 </body>
-
 </html>
