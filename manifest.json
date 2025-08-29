@@ -1,0 +1,39 @@
+{
+    "name": "Huzefa Nalkheda Wala - AI Product Engineer",
+    "short_name": "Huzefa AI Engineer",
+    "description": "AI Product Engineer and Medical AI Researcher - Professional Portfolio",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#0a0a0f",
+    "theme_color": "#00d4ff",
+    "orientation": "portrait-primary",
+    "categories": ["portfolio", "professional", "ai", "technology"],
+    "lang": "en",
+    "icons": [
+        {
+            "src": "huzefa.jpg",
+            "sizes": "192x192",
+            "type": "image/jpeg",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "huzefa.jpg", 
+            "sizes": "512x512",
+            "type": "image/jpeg",
+            "purpose": "any"
+        }
+    ],
+    "screenshots": [
+        {
+            "src": "huzefa.jpg",
+            "sizes": "1200x630",
+            "type": "image/jpeg",
+            "form_factor": "wide",
+            "label": "Huzefa Nalkheda Wala - AI Engineer Portfolio"
+        }
+    ],
+    "related_applications": [],
+    "prefer_related_applications": false,
+    "scope": "/",
+    "id": "huzefa-ai-engineer-portfolio"
+}

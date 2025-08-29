@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+    <url>
+        <loc>https://huzefanalkhedawala.in/</loc>
+        <lastmod>2024-12-01</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+        <image:image>
+            <image:loc>https://huzefanalkhedawala.in/huzefa.jpg</image:loc>
+            <image:caption>Huzefa Nalkheda Wala - AI Product Engineer and Medical AI Researcher</image:caption>
+            <image:title>Huzefa Nalkheda Wala Professional Profile</image:title>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://huzefanalkhedawala.in/LLM.txt</loc>
+        <lastmod>2024-12-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+</urlset>
