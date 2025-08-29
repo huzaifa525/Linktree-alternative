@@ -142,31 +142,36 @@
             color: var(--accent-blue);
         }
 
-        /* Mobile navigation */
+        /* COMPLETE MOBILE REDESIGN - FIXED NAVIGATION */
         @media (max-width: 768px) {
             .nav {
                 padding: 0 1rem;
+                height: 70px;
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                z-index: 1000;
+                background: var(--bg-primary);
+                border-bottom: 1px solid var(--border);
             }
             
             .nav-links {
                 flex-direction: column;
-                gap: 0;
-                position: absolute;
-                top: 100%;
+                position: fixed;
+                top: 70px;
                 left: 0;
                 right: 0;
-                background: rgba(10, 10, 15, 0.98);
-                backdrop-filter: blur(20px);
-                border-top: 1px solid var(--border);
+                background: var(--bg-primary);
                 padding: 0;
                 display: none;
-                max-height: calc(100vh - 80px);
+                height: calc(100vh - 70px);
                 overflow-y: auto;
-                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+                z-index: 999;
             }
             
             .nav-links.active {
-                display: flex;
+                display: flex !important;
             }
             
             .nav-links li {
@@ -179,39 +184,49 @@
             }
             
             .nav-links a {
-                padding: 1rem 2rem;
+                padding: 1.5rem 2rem;
                 display: block;
-                text-align: left;
-                border-bottom: none;
-                font-size: 1rem;
-                transition: all 0.3s ease;
+                width: 100%;
+                font-size: 1.1rem;
+                font-weight: 500;
+                color: var(--text-primary);
+                text-decoration: none;
             }
             
-            .nav-links a:hover {
+            .nav-links a:hover,
+            .nav-links a.active {
                 background: var(--bg-secondary);
                 color: var(--accent-blue);
-                padding-left: 2.5rem;
             }
             
             .nav-toggle {
-                display: block;
+                display: block !important;
                 background: none;
                 border: none;
                 color: var(--text-primary);
-                font-size: 1.2rem;
+                font-size: 1.5rem;
                 cursor: pointer;
                 padding: 0.5rem;
-                border-radius: 4px;
-                transition: all 0.3s ease;
             }
             
             .nav-toggle:hover {
-                background: var(--bg-secondary);
                 color: var(--accent-blue);
             }
             
+            .logo {
+                font-size: 1.2rem;
+                font-weight: 700;
+            }
+        }
+        
+        @media (max-width: 575px) {
             .nav {
-                position: relative;
+                padding: 0 1rem;
+            }
+            
+            .nav-links a {
+                padding: 1.2rem 1.5rem;
+                font-size: 1rem;
             }
             
             .logo {
@@ -219,23 +234,307 @@
             }
         }
         
-        @media (max-width: 575px) {
-            .nav {
-                padding: 0 0.8rem;
-            }
-            
-            .nav-links a {
-                padding: 0.8rem 1.5rem;
-                font-size: 0.95rem;
-            }
-            
-            .nav-links a:hover {
-                padding-left: 2rem;
-            }
-        }
-        
         .nav-toggle {
             display: none;
+        }
+        
+        @media (max-width: 768px) {
+            .nav-toggle {
+                display: block !important;
+            }
+        }
+
+        /* COMPLETE MOBILE LAYOUT FIXES */
+        @media (max-width: 768px) {
+            /* Main layout */
+            main {
+                margin-top: 70px !important;
+            }
+            
+            .container {
+                padding: 0 1rem !important;
+                max-width: 100% !important;
+            }
+            
+            .section {
+                padding: 2rem 0 !important;
+            }
+            
+            /* HERO SECTION COMPLETE MOBILE FIX */
+            .hero {
+                min-height: auto !important;
+                padding: 2rem 0 !important;
+            }
+            
+            .hero-content {
+                display: flex !important;
+                flex-direction: column !important;
+                gap: 2rem !important;
+                text-align: center !important;
+                grid-template-columns: none !important;
+                align-items: center !important;
+            }
+            
+            .hero-image {
+                order: -1 !important;
+                margin-bottom: 1rem !important;
+            }
+            
+            .profile-container {
+                width: 160px !important;
+                height: 160px !important;
+                margin: 0 auto !important;
+            }
+            
+            .hero-text h1 {
+                font-size: 2.2rem !important;
+                line-height: 1.2 !important;
+                margin-bottom: 1rem !important;
+            }
+            
+            .hero-text .subtitle {
+                font-size: 1.1rem !important;
+                margin-bottom: 1rem !important;
+                color: var(--text-secondary) !important;
+            }
+            
+            .hero-text .description {
+                font-size: 0.95rem !important;
+                line-height: 1.6 !important;
+                margin-bottom: 2rem !important;
+                color: var(--text-secondary) !important;
+            }
+            
+            .hero-stats {
+                display: flex !important;
+                flex-direction: column !important;
+                gap: 1rem !important;
+                margin: 2rem 0 !important;
+                grid-template-columns: none !important;
+            }
+            
+            .hero-stats .stat {
+                font-size: 0.9rem !important;
+                padding: 1rem !important;
+                background: var(--bg-secondary) !important;
+                border-radius: 12px !important;
+                border: 1px solid var(--border) !important;
+            }
+            
+            /* ALL GRIDS TO SINGLE COLUMN */
+            .research-grid,
+            .projects-grid,
+            .skills-grid,
+            .achievements-grid,
+            .education-grid,
+            .contact-grid {
+                display: flex !important;
+                flex-direction: column !important;
+                gap: 1.5rem !important;
+                grid-template-columns: none !important;
+            }
+            
+            /* CARDS COMPLETE MOBILE FIX */
+            .research-card,
+            .project-card,
+            .skill-category,
+            .achievement-card,
+            .education-card {
+                padding: 1.5rem !important;
+                margin-bottom: 0 !important;
+                border-radius: 16px !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                box-sizing: border-box !important;
+                background: var(--bg-secondary) !important;
+                border: 1px solid var(--border) !important;
+            }
+            
+            .research-card h3,
+            .project-card h3,
+            .achievement-card h3,
+            .education-card h3 {
+                font-size: 1.2rem !important;
+                margin-bottom: 1rem !important;
+                color: var(--text-primary) !important;
+            }
+            
+            .research-card p,
+            .project-card p,
+            .achievement-card p,
+            .education-card p {
+                font-size: 0.95rem !important;
+                line-height: 1.5 !important;
+                color: var(--text-secondary) !important;
+            }
+            
+            .research-meta,
+            .project-meta,
+            .achievement-meta {
+                font-size: 0.85rem !important;
+                color: var(--text-muted) !important;
+                margin-bottom: 0.5rem !important;
+            }
+            
+            /* SOCIAL LINKS MOBILE FIX */
+            .social-links {
+                display: flex !important;
+                flex-direction: column !important;
+                gap: 1rem !important;
+                width: 100% !important;
+                grid-template-columns: none !important;
+            }
+            
+            .social-link {
+                padding: 1.2rem !important;
+                font-size: 1rem !important;
+                width: 100% !important;
+                text-align: center !important;
+                box-sizing: border-box !important;
+                background: var(--bg-secondary) !important;
+                border: 1px solid var(--border) !important;
+                border-radius: 12px !important;
+                color: var(--text-primary) !important;
+                text-decoration: none !important;
+            }
+            
+            .social-link:hover {
+                background: var(--bg-tertiary) !important;
+                border-color: var(--accent-blue) !important;
+                color: var(--accent-blue) !important;
+            }
+            
+            .social-link i {
+                margin-right: 0.5rem !important;
+                font-size: 1.1rem !important;
+            }
+            
+            /* BUTTONS MOBILE FIX */
+            .btn {
+                width: 100% !important;
+                padding: 1.2rem 2rem !important;
+                font-size: 1rem !important;
+                text-align: center !important;
+                margin-bottom: 1rem !important;
+                border-radius: 12px !important;
+                box-sizing: border-box !important;
+            }
+            
+            /* TYPOGRAPHY MOBILE FIXES */
+            .section-title {
+                font-size: 2rem !important;
+                margin-bottom: 2rem !important;
+                text-align: center !important;
+                color: var(--text-primary) !important;
+            }
+            
+            /* TIMELINE MOBILE FIX */
+            .timeline-container {
+                padding: 0 1rem !important;
+            }
+            
+            .timeline-line {
+                left: 20px !important;
+            }
+            
+            .timeline-content {
+                margin-left: 50px !important;
+                margin-right: 0 !important;
+                width: calc(100% - 50px) !important;
+            }
+            
+            .timeline-marker {
+                left: 20px !important;
+                transform: translateX(-50%) !important;
+            }
+            
+            /* CONTACT SECTION MOBILE */
+            .contact-info h3 {
+                font-size: 1.5rem !important;
+                margin-bottom: 1rem !important;
+            }
+            
+            .contact-info p {
+                font-size: 1rem !important;
+                line-height: 1.5 !important;
+            }
+            
+            /* FLOATING TECH - HIDE ON MOBILE FOR PERFORMANCE */
+            .floating-tech {
+                display: none !important;
+            }
+            
+            /* PROJECT SPECIFIC MOBILE FIXES */
+            .project-header,
+            .project-content {
+                padding: 1.5rem !important;
+            }
+            
+            .tech-tag {
+                font-size: 0.8rem !important;
+                padding: 0.4rem 0.8rem !important;
+                margin: 0.2rem 0.2rem 0.2rem 0 !important;
+            }
+            
+            /* SKILLS MOBILE */
+            .skill-item {
+                font-size: 0.9rem !important;
+                padding: 0.5rem 1rem !important;
+                margin: 0.3rem 0.3rem 0.3rem 0 !important;
+            }
+        }
+
+        /* EXTRA SMALL MOBILE DEVICES */
+        @media (max-width: 575px) {
+            .hero-text h1 {
+                font-size: 1.8rem !important;
+            }
+            
+            .profile-container {
+                width: 140px !important;
+                height: 140px !important;
+            }
+            
+            .section-title {
+                font-size: 1.6rem !important;
+            }
+            
+            .research-card,
+            .project-card,
+            .skill-category,
+            .achievement-card,
+            .education-card {
+                padding: 1.2rem !important;
+            }
+            
+            .social-link {
+                padding: 1rem !important;
+            }
+            
+            .container {
+                padding: 0 0.8rem !important;
+            }
+        }
+
+        /* LANDSCAPE MOBILE ORIENTATION */
+        @media (max-height: 500px) and (orientation: landscape) and (max-width: 768px) {
+            .hero {
+                min-height: 100vh !important;
+                padding: 1rem 0 !important;
+            }
+            
+            .section {
+                padding: 1.5rem 0 !important;
+            }
+            
+            .profile-container {
+                width: 120px !important;
+                height: 120px !important;
+            }
+            
+            .hero-text h1 {
+                font-size: 1.8rem !important;
+            }
         }
 
         /* Main content */
@@ -809,20 +1108,7 @@
             }
         }
 
-        /* Timeline responsive */
-        @media (max-width: 768px) {
-            .timeline-line {
-                left: 20px;
-            }
-            .timeline-content {
-                margin-left: 60px !important;
-                margin-right: 0 !important;
-                width: calc(100% - 60px) !important;
-            }
-            .timeline-marker {
-                left: 20px !important;
-            }
-        }
+        /* Timeline responsive - INTEGRATED INTO MAIN MOBILE STYLES */
 
         /* Loading animation - REMOVED INCORRECT DUPLICATE */
 
@@ -845,6 +1131,56 @@
         }
 
         /* Comprehensive Mobile & Responsive Design */
+        
+        /* Tablet Optimization (769px - 1024px) */
+        @media (max-width: 1024px) and (min-width: 769px) {
+            .container {
+                padding: 0 2rem;
+            }
+            
+            .hero-content {
+                gap: 3rem;
+            }
+            
+            .projects-grid {
+                grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+                gap: 2rem;
+            }
+            
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2rem;
+            }
+            
+            .research-grid {
+                grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+                gap: 2rem;
+            }
+            
+            .achievements-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2rem;
+            }
+            
+            .timeline-content {
+                margin-left: 80px !important;
+                margin-right: 20px !important;
+            }
+            
+            .research-card,
+            .project-card,
+            .achievement-card {
+                padding: 1.8rem;
+            }
+            
+            .hero-text h1 {
+                font-size: 3.2rem;
+            }
+            
+            .section-title {
+                font-size: 2.5rem;
+            }
+        }
         
         /* Large Desktop (1200px+) */
         @media (min-width: 1200px) {
@@ -988,211 +1324,70 @@
             }
         }
         
-        /* Mobile Small (up to 575px) */
-        @media (max-width: 575px) {
-            .container {
-                padding: 0 1rem;
-            }
-            
-            .section {
-                padding: 3rem 0;
-            }
-            
-            .hero {
-                min-height: 70vh;
-                padding: 2rem 0;
-            }
-            
-            .hero-content {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-                text-align: center;
-            }
-            
-            .hero-image {
-                order: -1;
-            }
-            
-            .profile-container {
-                width: 180px;
-                height: 180px;
-            }
-
-            .profile-container::before {
-                animation-duration: 5s;
-                opacity: 0.6; /* Less intense on smaller screens */
-            }
-
-            .profile-container::after {
-                animation-duration: 7s;
-                opacity: 0.3;
-            }
-            
-            .hero-text h1 {
-                font-size: 2.5rem;
-                line-height: 1.1;
-            }
-            
-            .hero-text .subtitle {
-                font-size: 1.1rem;
-            }
-            
-            .hero-text .description {
-                font-size: 1rem;
-            }
-            
-            .hero-stats {
-                grid-template-columns: 1fr;
-                gap: 1rem;
-            }
-            
-            .btn {
-                width: 100%;
-                text-align: center;
-                justify-content: center;
-            }
-            
-            .section-title {
-                font-size: 2rem;
-                margin-bottom: 2rem;
-            }
-            
-            .research-grid,
-            .projects-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-            
-            .research-card,
-            .project-card {
-                padding: 1.5rem;
-            }
-            
-            .project-header,
-            .project-content {
-                padding: 1.5rem;
-            }
-            
-            .social-links {
-                grid-template-columns: 1fr;
-                gap: 0.8rem;
-            }
-            
-            .social-link {
-                padding: 0.8rem;
-            }
-            
-            .contact-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-            
-            .contact-info h3 {
-                font-size: 1.5rem;
-            }
-            
-            .floating-tech {
-                font-size: 0.7rem;
-                padding: 0.3rem 0.6rem;
-                animation-duration: 6s !important; /* Slower on mobile for battery */
-                position: absolute !important; /* Keep floating on mobile */
-            }
-            
-            .floating-tech:nth-child(2),
-            .floating-tech:nth-child(3),
-            .floating-tech:nth-child(4),
-            .floating-tech:nth-child(5),
-            .floating-tech:nth-child(6),
-            .floating-tech:nth-child(7),
-            .floating-tech:nth-child(8),
-            .floating-tech:nth-child(9) {
-                animation-duration: 6s !important;
-                /* Keep original positioning for floating effect */
-            }
-            
-            .skills-grid,
-            .education-grid,
-            .achievements-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-            
-            .skill-category,
-            .education-card,
-            .achievement-card {
-                padding: 1.5rem;
-            }
-            
-            .tech-tag {
-                font-size: 0.7rem;
-                padding: 0.2rem 0.6rem;
-            }
-        }
+        /* OLD MOBILE STYLES REPLACED WITH NEW COMPREHENSIVE MOBILE DESIGN ABOVE */
         
-        /* Extra Small Mobile (up to 374px) */
-        @media (max-width: 374px) {
-            .container {
-                padding: 0 0.8rem;
-            }
-            
-            .hero-text h1 {
-                font-size: 2rem;
-            }
-            
-            .profile-container {
-                width: 150px;
-                height: 150px;
-            }
-
-            .profile-container::before {
-                animation-duration: 6s; /* Very slow on small screens */
-                opacity: 0.5;
-            }
-
-            .profile-container::after {
-                animation-duration: 8s;
-                opacity: 0.2; /* Very subtle on small screens */
-            }
-            
-            .section-title {
-                font-size: 1.8rem;
-            }
-            
-            .research-card,
-            .project-card,
-            .skill-category,
-            .education-card,
-            .achievement-card {
-                padding: 1rem;
-            }
-            
-            .project-header,
-            .project-content {
-                padding: 1rem;
-            }
-            
-            .btn {
-                padding: 0.6rem 1rem;
-                font-size: 0.85rem;
-            }
-        }
+        /* OLD 374px STYLES REPLACED WITH NEW COMPREHENSIVE MOBILE DESIGN ABOVE */
         
-        /* Landscape Mobile Orientation */
-        @media (max-height: 500px) and (orientation: landscape) {
-            .hero {
-                min-height: 90vh;
-            }
-            
-            .section {
-                padding: 2rem 0;
-            }
-        }
+        /* OLD LANDSCAPE STYLES REPLACED WITH NEW COMPREHENSIVE MOBILE DESIGN ABOVE */
         
         /* High DPI / Retina Display Optimizations */
         @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
             .profile-image {
                 image-rendering: -webkit-optimize-contrast;
                 image-rendering: crisp-edges;
+            }
+        }
+
+        /* Enhanced Mobile Touch Improvements */
+        @media (max-width: 768px) {
+            /* Improve scrolling performance on mobile */
+            * {
+                -webkit-overflow-scrolling: touch;
+            }
+            
+            /* Better tap targets */
+            .research-card,
+            .project-card,
+            .achievement-card {
+                min-height: 44px;
+                cursor: pointer;
+            }
+            
+            /* Prevent zoom on input focus (iOS) */
+            input, select, textarea {
+                font-size: 16px !important;
+            }
+            
+            /* Optimize animations for mobile */
+            .research-card:hover,
+            .project-card:hover,
+            .achievement-card:hover {
+                transform: translateY(-2px) !important;
+            }
+            
+            /* Reduce motion for users who prefer it */
+            @media (prefers-reduced-motion: reduce) {
+                *, *::before, *::after {
+                    animation-duration: 0.01ms !important;
+                    animation-iteration-count: 1 !important;
+                    transition-duration: 0.01ms !important;
+                }
+                
+                .floating-tech {
+                    animation: none !important;
+                }
+            }
+        }
+
+        /* Dark mode adaptations for mobile */
+        @media (prefers-color-scheme: dark) and (max-width: 768px) {
+            .research-card,
+            .project-card,
+            .skill-category,
+            .education-card,
+            .achievement-card {
+                border-color: rgba(255, 255, 255, 0.15);
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
             }
         }
         
