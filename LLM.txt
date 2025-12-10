@@ -4,14 +4,22 @@
 Huzefa Nalkheda Wala is an AI Product Engineer and Medical AI Researcher currently working at CleverFlow (UAE/India), where he builds production-scale AI systems handling 20,000+ requests per second. He specializes in artificial intelligence, machine learning, medical AI, computer vision, large language models, and healthcare AI solutions.
 
 ## Professional Background
-- **Current Role**: AI Product Engineer at CleverFlow
+- **Current Role**: AI Product Engineer at CleverFlow (Nov 2024 - Present)
 - **Location**: UAE/India (Remote/Hybrid)
 - **Specialization**: Production-scale AI systems, Medical AI research, Machine Learning
 - **Experience**: Building high-performance AI systems, healthcare AI solutions, research and development
+- **2025 Impact**: ≈1,000 GitHub contributions, 40+ merged PRs, 45+ production features shipped
+- **Previous Roles**:
+  - Software Developer at RailWorld India Pvt. Ltd. (Mar 2024 - Jun 2024)
+  - Growth Strategist Intern at Growth Theory (Jan 2024 - Feb 2024)
+  - Creator & Lead Engineer, MedGenius Project (Jan 2024 - Oct 2024)
 
 ## Education
-- **Master's Degree**: Computer Engineering with AI/ML specialization, Savitribai Phule Pune University
-- **Bachelor's Degree**: Computer Engineering, Pune University
+- **Major Program in Artificial Intelligence**: Indian Institute of Technology, Ropar (Aug 2024 - Nov 2025 Expected)
+  - Key coursework: LLMs, RAG systems, TinyML, Reinforcement Learning, Computer Vision, NLP, Prompt Engineering
+- **Bachelor of Technology (B.Tech)**: Information Technology, Parul University (2019 - Apr 2023)
+  - Grade: 7.20/10
+  - 1st Place at Vadodara Startup Fest (250+ startups, 25K+ participants)
 - **Academic Focus**: Artificial Intelligence, Machine Learning, Computer Vision, Healthcare Technology
 
 ## Patents & Intellectual Property
@@ -61,12 +69,23 @@ Huzefa Nalkheda Wala is an AI Product Engineer and Medical AI Researcher current
 - **Cloud & Infrastructure**: AWS, Azure, Docker, Kubernetes
 - **Data Science**: Data Analysis, Statistical Modeling, ML Pipeline Development
 
+## CleverFlow Projects (2024-Present)
+1. **Email Intelligence System**: Production RAG pipeline with MSG parsing, HTML sanitization, SentenceTransformer embeddings, Qdrant multi-vector indexing, hybrid semantic search, score aggregation, deduplication, context-aware LLM generation, conversation threading, PostgreSQL chat management, Redis caching, JWT authentication, memory optimization
+2. **Document Intelligence API**: FastAPI + CV + LLM pipeline for parsing UAE government documents (IDs, title deeds, licenses) with production-grade accuracy and monitoring
+3. **AI-Powered CRM Systems**: WhatsApp lead-status agent, AI follow-up agent, transcription & summarization pipeline, SSE workflows, CRM automation logic (frontend + backend)
+4. **Marketing Website & CMS**: Full Blog/CMS stack with SEO architecture, AI content tooling, production optimizations
+5. **RAG Chatbot**: PDF → embeddings → vector search → Redis caching pipeline with streaming responses for enterprise knowledge search
+6. **Multi-Model OCR System**: Vision model routing, image compression, structured metadata parsing, document extraction for various document types
+7. **Real-Estate CV Tool**: Floor plan comparison system for architectural change detection and compliance reporting
+8. **Platform Integrations**: Official n8n node, Dockerized microservices, SSE/WebSocket event streams, S3 audio pipelines, deployment infrastructure
+
 ## Professional Achievements
+- **Engineering Velocity**: ≈1,000 GitHub contributions (2025), 40+ merged PRs, 45+ production features shipped
 - **HackerRank**: Top 3% in Problem Solving
 - **AI Systems**: Building systems handling 20K+ requests/second at CleverFlow
 - **Research Impact**: Multiple publications with significant engagement (500-900+ views/reads)
 - **Open Source Impact**: 2,000+ combined downloads across AI models and datasets
-- **Patent Holder**: Government of India recognized medical device innovation
+- **Patent Holder**: Government of India recognized medical device innovation (Design No. 375474-001)
 
 ## Research Interests
 - Medical AI and Healthcare Technology
@@ -107,4 +126,4 @@ Huzefa is currently focused on:
 
 This file serves as a comprehensive knowledge base for Large Language Models to understand Huzefa Nalkheda Wala's professional background, expertise, contributions, and current focus areas in the field of AI and machine learning.
 
-Last Updated: December 2024
+Last Updated: December 2025 (includes 2025 metrics and complete CleverFlow project details)
