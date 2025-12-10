@@ -294,11 +294,12 @@ function initStatsCounter() {
 
                 if (!/\d/.test(text)) return;
 
-                const match = text.match(/([≈~])?(\d+)([K\+]*)/i);
+                // Updated regex to handle decimals like 2.5K+
+                const match = text.match(/([≈~])?(\d+\.?\d*)([K\+]*)/i);
                 if (!match) return;
 
                 const prefix = match[1] || '';
-                const number = parseInt(match[2]);
+                const number = parseFloat(match[2]); // Use parseFloat for decimals
                 const suffix = match[3] || '';
 
                 // Skip animation for single-digit numbers
@@ -316,7 +317,9 @@ function initStatsCounter() {
                         current = number;
                         clearInterval(timer);
                     }
-                    target.textContent = prefix + Math.floor(current) + suffix;
+                    // Keep decimal if original had one
+                    const displayNumber = number % 1 === 0 ? Math.floor(current) : current.toFixed(1);
+                    target.textContent = prefix + displayNumber + suffix;
                 }, 30);
 
                 observer.unobserve(target);

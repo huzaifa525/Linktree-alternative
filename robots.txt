@@ -1,16 +1,16 @@
+# Robots.txt for Huzefa Nalkheda Wala - AI Engineer Portfolio
+# Optimized for SEO and Generative Engine Optimization (GEO)
+
+# Allow all search engines
 User-agent: *
 Allow: /
-
-# Sitemap
-Sitemap: https://huzefanalkhedawala.in/sitemap.xml
-
-# Allow all search engines to index the LLM.txt file
 Allow: /LLM.txt
-
-# Crawl delay (optional)
 Crawl-delay: 1
 
-# Specific directives for major search engines
+# Sitemap location
+Sitemap: https://huzefanalkhedawala.in/sitemap.xml
+
+# Major Search Engines
 User-agent: Googlebot
 Allow: /
 
@@ -20,12 +20,62 @@ Allow: /
 User-agent: Slurp
 Allow: /
 
-# Allow AI crawlers to access LLM.txt
-User-agent: OpenAI-GPT
-Allow: /LLM.txt
+User-agent: DuckDuckBot
+Allow: /
 
-User-agent: Claude-Web
+# AI Crawlers & LLMs (GEO Optimization)
+User-agent: GPTBot
+Allow: /
 Allow: /LLM.txt
 
 User-agent: ChatGPT-User
+Allow: /
 Allow: /LLM.txt
+
+User-agent: OpenAI-SearchBot
+Allow: /
+Allow: /LLM.txt
+
+User-agent: Claude-Web
+Allow: /
+Allow: /LLM.txt
+
+User-agent: CCBot
+Allow: /
+Allow: /LLM.txt
+
+User-agent: anthropic-ai
+Allow: /
+Allow: /LLM.txt
+
+User-agent: Perplexity-Bot
+Allow: /
+Allow: /LLM.txt
+
+User-agent: PerplexityBot
+Allow: /
+Allow: /LLM.txt
+
+User-agent: Googlebot-Extended
+Allow: /
+Allow: /LLM.txt
+
+User-agent: Google-Extended
+Allow: /
+Allow: /LLM.txt
+
+# Social Media Crawlers
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+# Priority content for AI discovery
+# Keywords: Huzefa Nalkheda Wala, AI Engineer, Medical AI, LLMs, RAG Systems, Computer Vision
+# Skills: PyTorch, LangChain, FastAPI, Docker, Healthcare AI
+# Location: India, IIT Ropar
+# Open for: AI Engineering roles, ML consultancy, research collaboration

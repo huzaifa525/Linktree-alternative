@@ -1,21 +1,74 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+
+    <!-- Homepage - Huzefa Nalkheda Wala Portfolio -->
     <url>
         <loc>https://huzefanalkhedawala.in/</loc>
-        <lastmod>2024-12-01</lastmod>
+        <lastmod>2025-12-10</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
         <image:image>
             <image:loc>https://huzefanalkhedawala.in/huzefa.jpg</image:loc>
-            <image:caption>Huzefa Nalkheda Wala - AI Product Engineer and Medical AI Researcher</image:caption>
-            <image:title>Huzefa Nalkheda Wala Professional Profile</image:title>
+            <image:title>Huzefa Nalkheda Wala - AI Product Engineer at CleverFlow</image:title>
+            <image:caption>AI Product Engineer and Medical AI Researcher specializing in LLMs, RAG systems, computer vision, and healthcare AI. Creator of MedGenius LLaMA-3.2B</image:caption>
         </image:image>
     </url>
+
+    <!-- About Section - Profile and Bio -->
     <url>
-        <loc>https://huzefanalkhedawala.in/LLM.txt</loc>
-        <lastmod>2024-12-01</lastmod>
+        <loc>https://huzefanalkhedawala.in/#about</loc>
+        <lastmod>2025-12-10</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
+    <!-- Projects Section - AI/ML Portfolio -->
+    <url>
+        <loc>https://huzefanalkhedawala.in/#projects</loc>
+        <lastmod>2025-12-10</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
+    <!-- Skills Section - Technical Expertise -->
+    <url>
+        <loc>https://huzefanalkhedawala.in/#skills</loc>
+        <lastmod>2025-12-10</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
+
+    <!-- Research Section - Publications and Papers -->
+    <url>
+        <loc>https://huzefanalkhedawala.in/#research</loc>
+        <lastmod>2025-12-10</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- Experience Section - Work History -->
+    <url>
+        <loc>https://huzefanalkhedawala.in/#experience</loc>
+        <lastmod>2025-12-10</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- Contact Section -->
+    <url>
+        <loc>https://huzefanalkhedawala.in/#contact</loc>
+        <lastmod>2025-12-10</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <!-- LLM.txt - AI-Readable Resume -->
+    <url>
+        <loc>https://huzefanalkhedawala.in/LLM.txt</loc>
+        <lastmod>2025-12-10</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
 </urlset>

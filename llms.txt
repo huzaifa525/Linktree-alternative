@@ -1,0 +1,136 @@
+# Huzefa Nalkheda Wala - AI Product Engineer Portfolio
+
+> AI Product Engineer at CleverFlow specializing in Medical AI, Large Language Models (LLMs), Retrieval Augmented Generation (RAG) systems, and Computer Vision. Creator of MedGenius LLaMA-3.2B medical AI model with 40K+ curated medical dialogues. Patent holder (Design No. 375474-001) and published AI researcher from IIT Ropar.
+
+## Professional Summary
+
+Huzefa Nalkheda Wala is an AI Product Engineer at CleverFlow with 3+ years of experience building production-grade AI systems. He specializes in:
+
+- **Medical AI & Healthcare Technology**: Fine-tuned medical LLMs (MedGenius LLaMA-3.2B), curated 40K+ medical dialogue datasets, developed patient-doctor dialogue systems
+- **Large Language Models (LLMs)**: Production RAG systems, LangChain integration, prompt engineering, model fine-tuning (LoRA/QLoRA), LLaMA deployment
+- **Document Intelligence**: Built enterprise document processing systems handling 10K+ documents, multimodal AI solutions, OCR pipelines
+- **Computer Vision**: Developed real-time vision systems (30 FPS), OpenCV expertise, medical imaging analysis
+- **Production ML Deployment**: Docker containerization, FastAPI microservices, Redis caching, vector database optimization (Qdrant, Faiss)
+
+**Key Achievements:**
+- Medical Equipment Innovation Patent (Design No. 375474-001, 2024)
+- Published AI Research Papers
+- ≈1000 GitHub Contributions (2025)
+- 40+ Merged Production PRs
+- 45+ Production Features Deployed
+- Top 3% on HackerRank
+- Vadodara Startup Festival Winner
+
+**Education:**
+- AI & ML Specialization from IIT Ropar (2024-2025)
+- B.Tech in Computer Science & Engineering from Parul University (2021-2025)
+
+**Location:** Ahmedabad, Gujarat, India
+
+**Availability:** Open for AI Engineering roles, ML consultancy, and research collaboration
+
+## Core Skills
+
+### AI/ML Frameworks & Tools
+- PyTorch, TensorFlow, Hugging Face Transformers
+- LangChain, LlamaIndex, OpenCV
+- YOLO, Scikit-learn, Pandas, NumPy
+
+### Languages & Backend
+- Python (Expert), TypeScript, JavaScript
+- FastAPI, Django, Node.js, Express.js
+
+### Databases & Vector Stores
+- PostgreSQL, MongoDB, Redis
+- Qdrant, Faiss, Pinecone (Vector DBs)
+
+### DevOps & Cloud
+- Docker, GitHub Actions, Git
+- AWS S3, Railway, Vercel
+- RESTful APIs, WebSocket
+
+## Featured Projects
+
+### MedGenius LLaMA - Medical AI Assistant
+- [GitHub Repository](https://github.com/huzaifa525/MedGenius-LLaMA)
+- [Hugging Face Model](https://huggingface.co/huzaifa525/MedGenius-LLaMA-3.2-1B)
+- Fine-tuned LLaMA 3.2 1B model on 40,000+ curated medical dialogues
+- Specialized medical chatbot for patient-doctor interactions
+- Achieves human-like medical consultation responses
+- Technologies: PyTorch, Hugging Face, LoRA, Unsloth
+
+### Real-Time Document Intelligence System
+- Production enterprise AI system at CleverFlow
+- Processes 10,000+ documents with multimodal analysis
+- 40+ merged PRs, 45+ production features deployed
+- RAG architecture with vector database optimization
+- Technologies: LangChain, Qdrant, FastAPI, Docker, Redis
+
+### AI-Powered Medical Equipment Innovation
+- Patent holder (Design No. 375474-001)
+- Novel medical device with AI integration
+- Published research and patent documentation
+- Focus on healthcare technology innovation
+
+### Computer Vision Real-Time Systems
+- 30 FPS real-time object detection and tracking
+- OpenCV-based vision pipelines
+- Medical imaging analysis applications
+- YOLO integration for efficient detection
+
+## Work Experience
+
+### AI Product Engineer - CleverFlow (June 2024 - Present)
+- Building production RAG systems and document intelligence platforms
+- Deploying multimodal AI solutions for enterprise clients
+- Architecting vector database systems and LLM integrations
+- Managing AI infrastructure and model deployment pipelines
+
+### AI Research Intern - IIT Ropar (2024-2025)
+- Conducted research on medical AI and NLP systems
+- Fine-tuned large language models for healthcare applications
+- Published research papers on AI in medicine
+- Collaborated with PhD researchers on ML projects
+
+### Founder - Vadodara Startup Festival Winner (2023)
+- Led AI startup to victory at regional competition
+- Developed innovative AI product for market
+- Pitched to investors and secured initial recognition
+
+## Research & Publications
+
+- Published papers on Medical AI and Natural Language Processing
+- Research on fine-tuning LLMs for healthcare domain
+- Dataset curation methodologies for medical dialogue systems
+- Patent documentation for medical equipment innovation
+
+## Contact & Social Links
+
+- **LinkedIn:** [huzefanalkheda](https://linkedin.com/in/huzefanalkheda)
+- **GitHub:** [huzaifa525](https://github.com/huzaifa525)
+- **Hugging Face:** [huzaifa525](https://huggingface.co/huzaifa525)
+- **Email:** huzaifanalkheda@gmail.com
+- **Portfolio:** [huzefanalkhedawala.in](https://huzefanalkhedawala.in)
+- **Medium:** [huzefanalkheda](https://medium.com/@huzefanalkheda)
+- **Kaggle:** [huzefanalkheda](https://kaggle.com/huzefanalkheda)
+
+## Expertise Keywords
+
+artificial intelligence, machine learning, medical AI, large language models, LLM fine-tuning, retrieval augmented generation, RAG systems, vector databases, document intelligence, computer vision, healthcare AI, medical NLP, patient dialogue systems, production ML deployment, PyTorch development, LangChain integration, FastAPI microservices, Docker containerization, medical dataset curation, LoRA QLoRA techniques, transformer models, multimodal AI, enterprise AI systems, real-time inference, ML model optimization, AI infrastructure, healthcare chatbots, medical equipment innovation, IIT Ropar researcher, AI engineer India
+
+## Citation-Worthy Facts
+
+- **Patent Holder:** Design No. 375474-001 (2024) - Medical Equipment Innovation
+- **Model Creator:** MedGenius LLaMA-3.2-1B on Hugging Face (40K+ medical dialogues)
+- **GitHub Activity:** ≈1000 contributions in 2025, 40+ merged PRs
+- **Academic Credentials:** IIT Ropar AI Specialization, B.Tech CSE Parul University
+- **Production Impact:** 45+ features deployed, 10K+ documents processed
+- **Recognition:** Top 3% HackerRank, Vadodara Startup Festival Winner
+- **Publications:** Multiple AI research papers, technical blog posts on Medium
+- **Industry Experience:** AI Product Engineer at CleverFlow (2024-Present)
+
+---
+
+*Last Updated: December 2025*
+*AI-Optimized Resume Format for ChatGPT, Claude, Perplexity, and other LLM-powered search engines*
+*Following the llms.txt standard proposed by Jeremy Howard (FastAI)*
