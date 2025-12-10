@@ -1894,6 +1894,28 @@ main {
     font-family: 'Fira Code', 'JetBrains Mono', 'Consolas', monospace;
     display: block;
     font-weight: 400;
+    white-space: pre;
+    overflow-x: auto;
+    counter-reset: line;
+}
+
+/* Hide Jekyll line numbers if present */
+.post-content pre code .lineno,
+.post-content pre code .gutter {
+    display: none;
+}
+
+/* Diagram blocks */
+.post-content pre.diagram-block {
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.95), rgba(10, 10, 30, 0.98));
+}
+
+.post-content pre.diagram-block code {
+    font-family: 'Courier New', 'Courier', monospace;
+    line-height: 1.2;
+    white-space: pre;
+    letter-spacing: 0;
+    font-size: 0.9rem;
 }
 
 /* Scrollbar for code blocks */
@@ -2059,6 +2081,187 @@ main {
 .post-content table + p,
 .post-content blockquote + p {
     margin-top: 1.5rem;
+}
+
+/* Enhanced Markdown Support */
+
+/* Task lists (checkboxes) */
+.post-content ul.task-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.post-content ul.task-list li {
+    padding-left: 0;
+}
+
+.post-content ul.task-list li::before {
+    content: none;
+}
+
+.post-content ul.task-list input[type="checkbox"] {
+    margin-right: 0.5rem;
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+/* Keyboard shortcuts */
+.post-content kbd {
+    display: inline-block;
+    padding: 0.2rem 0.5rem;
+    font-size: 0.85em;
+    font-family: 'Fira Code', monospace;
+    background: rgba(0, 0, 0, 0.6);
+    border: 2px solid rgba(0, 212, 255, 0.3);
+    border-radius: 5px;
+    box-shadow:
+        0 2px 0 rgba(0, 212, 255, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    color: var(--neon-blue);
+    font-weight: 600;
+}
+
+/* Definition lists */
+.post-content dl {
+    margin: 1.5rem 0;
+}
+
+.post-content dt {
+    font-weight: 800;
+    color: var(--neon-blue);
+    margin-top: 1rem;
+}
+
+.post-content dd {
+    margin-left: 2rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-secondary);
+}
+
+/* Footnotes */
+.post-content .footnotes {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 2px solid rgba(0, 212, 255, 0.2);
+    font-size: 0.9rem;
+}
+
+.post-content .footnotes::before {
+    content: 'Footnotes';
+    display: block;
+    font-weight: 800;
+    color: var(--neon-blue);
+    margin-bottom: 1rem;
+}
+
+/* Abbreviations */
+.post-content abbr[title] {
+    text-decoration: underline dotted;
+    text-decoration-color: var(--neon-blue);
+    cursor: help;
+}
+
+/* Mark/Highlight */
+.post-content mark {
+    background: rgba(0, 255, 136, 0.2);
+    color: #00ff88;
+    padding: 0.1rem 0.3rem;
+    border-radius: 3px;
+}
+
+/* Superscript and subscript */
+.post-content sup,
+.post-content sub {
+    font-size: 0.75em;
+    line-height: 0;
+}
+
+/* Details/Summary (collapsible sections) */
+.post-content details {
+    margin: 1.5rem 0;
+    padding: 1rem;
+    background: rgba(0, 212, 255, 0.05);
+    border: 2px solid rgba(0, 212, 255, 0.2);
+    border-radius: 10px;
+}
+
+.post-content summary {
+    cursor: pointer;
+    font-weight: 700;
+    color: var(--neon-blue);
+    user-select: none;
+    padding: 0.5rem;
+    margin: -0.5rem;
+    border-radius: 8px;
+    transition: all 0.3s;
+}
+
+.post-content summary:hover {
+    background: rgba(0, 212, 255, 0.1);
+}
+
+.post-content details[open] summary {
+    margin-bottom: 1rem;
+    border-bottom: 1px solid rgba(0, 212, 255, 0.2);
+}
+
+/* Alerts/Admonitions */
+.post-content .alert {
+    padding: 1.5rem;
+    margin: 2rem 0;
+    border-radius: 10px;
+    border-left: 4px solid;
+    position: relative;
+    padding-left: 3.5rem;
+}
+
+.post-content .alert::before {
+    position: absolute;
+    left: 1rem;
+    top: 1.5rem;
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    font-size: 1.2rem;
+}
+
+.post-content .alert-info {
+    background: rgba(0, 212, 255, 0.1);
+    border-left-color: var(--neon-blue);
+}
+
+.post-content .alert-info::before {
+    content: '\f05a';
+    color: var(--neon-blue);
+}
+
+.post-content .alert-warning {
+    background: rgba(255, 193, 7, 0.1);
+    border-left-color: #ffc107;
+}
+
+.post-content .alert-warning::before {
+    content: '\f071';
+    color: #ffc107;
+}
+
+.post-content .alert-success {
+    background: rgba(0, 255, 136, 0.1);
+    border-left-color: #00ff88;
+}
+
+.post-content .alert-success::before {
+    content: '\f058';
+    color: #00ff88;
+}
+
+.post-content .alert-danger {
+    background: rgba(255, 0, 110, 0.1);
+    border-left-color: #ff006e;
+}
+
+.post-content .alert-danger::before {
+    content: '\f06a';
+    color: #ff006e;
 }
 
 /* Post Footer */

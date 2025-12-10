@@ -149,6 +149,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const codeBlocks = document.querySelectorAll('.post-content pre');
 
     codeBlocks.forEach((block, index) => {
+        // Skip if already wrapped
+        if (block.parentElement.classList.contains('code-block-wrapper')) return;
+
         // Wrap pre in a div for positioning
         const wrapper = document.createElement('div');
         wrapper.className = 'code-block-wrapper';
@@ -162,9 +165,17 @@ document.addEventListener('DOMContentLoaded', () => {
         copyBtn.setAttribute('aria-label', 'Copy code to clipboard');
 
         // Add click handler
-        copyBtn.addEventListener('click', () => {
+        copyBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+
             const code = block.querySelector('code');
-            const text = code ? code.textContent : block.textContent;
+            let text = code ? code.textContent : block.textContent;
+
+            // Clean up the text - remove line numbers if present
+            text = text.split('\n').map(line => {
+                // Remove leading line numbers (e.g., "1→", "123→")
+                return line.replace(/^\s*\d+→\s*/, '');
+            }).join('\n').trim();
 
             navigator.clipboard.writeText(text).then(() => {
                 // Show success state
@@ -188,5 +199,26 @@ document.addEventListener('DOMContentLoaded', () => {
         // Insert copy button
         wrapper.insertBefore(copyBtn, block);
     });
+
+    // Enhanced Markdown support - render diagrams as pre-formatted text
+    const processMarkdownDiagrams = () => {
+        const content = document.querySelector('.post-content');
+        if (!content) return;
+
+        // Find code blocks that contain ASCII diagrams
+        const diagramPatterns = /[┌┐└┘│─├┤┬┴┼→←↑↓]/;
+
+        codeBlocks.forEach(block => {
+            const code = block.querySelector('code');
+            if (code && diagramPatterns.test(code.textContent)) {
+                block.classList.add('diagram-block');
+                code.style.whiteSpace = 'pre';
+                code.style.fontFamily = "'Courier New', monospace";
+                code.style.lineHeight = '1.2';
+            }
+        });
+    };
+
+    processMarkdownDiagrams();
 });
 </script>
