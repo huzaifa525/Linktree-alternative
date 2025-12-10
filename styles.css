@@ -1505,8 +1505,16 @@ main {
 }
 
 .blog-post {
-    max-width: 800px;
+    max-width: 900px;
     margin: 0 auto;
+    background: rgba(10, 10, 20, 0.85);
+    backdrop-filter: blur(40px) saturate(150%);
+    border: 2px solid rgba(0, 212, 255, 0.15);
+    border-radius: 20px;
+    padding: var(--space-3xl);
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.5),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
 }
 
 /* Post Header */
@@ -1766,10 +1774,10 @@ main {
 /* Code blocks - MASSIVELY IMPROVED */
 .post-content pre {
     position: relative;
-    background: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(10, 10, 30, 0.8));
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.9), rgba(10, 10, 30, 0.95));
     border: 2px solid rgba(0, 212, 255, 0.3);
     border-radius: 12px;
-    padding: 1.5rem;
+    padding: 3.5rem 1.5rem 1.5rem 1.5rem;
     margin: 2rem 0;
     overflow-x: auto;
     box-shadow:
@@ -1777,6 +1785,20 @@ main {
         inset 0 1px 0 rgba(0, 212, 255, 0.1),
         0 0 0 1px rgba(0, 212, 255, 0.05);
     backdrop-filter: blur(10px);
+}
+
+/* Code block header bar */
+.post-content pre::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2.5rem;
+    background: rgba(0, 0, 0, 0.4);
+    border-bottom: 1px solid rgba(0, 212, 255, 0.2);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
 }
 
 .post-content pre::before {
