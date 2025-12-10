@@ -440,13 +440,18 @@ function createContributionGraph(container, contributions) {
 function initSmoothScroll() {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
+            const href = this.getAttribute('href');
+            if (href === '#' || !href) return; // Skip empty or just # links
+
             e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
+            const target = document.querySelector(href);
             if (target) {
-                gsap.to(window, {
-                    scrollTo: { y: target, offsetY: 100 },
-                    duration: 1,
-                    ease: 'power3.inOut'
+                const navHeight = 100; // Navbar height offset
+                const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - navHeight;
+
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
                 });
             }
         });
