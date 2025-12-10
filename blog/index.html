@@ -1,0 +1,195 @@
+---
+layout: default
+title: "Blog - Technical Articles on AI & Machine Learning"
+description: "Technical blog posts on Medical AI, Large Language Models, RAG systems, Computer Vision, and Production ML deployment by Huzefa Nalkheda Wala"
+---
+
+<section class="blog-hero">
+    <div class="container">
+        <div class="blog-hero-content fade-in">
+            <h1 class="blog-hero-title">
+                Technical <span class="gradient-text">AI Blog</span>
+            </h1>
+            <p class="blog-hero-subtitle">
+                Deep dives into Medical AI, LLMs, RAG Systems, and Production ML
+            </p>
+            <div class="blog-hero-stats">
+                <div class="blog-stat">
+                    <span class="blog-stat-number">{{ site.posts | size }}</span>
+                    <span class="blog-stat-label">Articles</span>
+                </div>
+                <div class="blog-stat">
+                    <span class="blog-stat-number">{{ site.tags | size }}</span>
+                    <span class="blog-stat-label">Topics</span>
+                </div>
+                <div class="blog-stat">
+                    <span class="blog-stat-number">3+</span>
+                    <span class="blog-stat-label">Years Experience</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="blog-content">
+    <div class="container">
+        <!-- Featured Post -->
+        {% if site.posts.size > 0 %}
+        {% assign featured_post = site.posts.first %}
+        <article class="featured-post fade-in">
+            <div class="featured-post-badge">
+                <i class="fas fa-star"></i> Latest Post
+            </div>
+            <div class="featured-post-content">
+                <div class="featured-post-meta">
+                    <time datetime="{{ featured_post.date | date_to_xmlschema }}">
+                        <i class="far fa-calendar"></i> {{ featured_post.date | date: "%B %d, %Y" }}
+                    </time>
+                    <span class="featured-post-read-time">
+                        <i class="far fa-clock"></i> {{ featured_post.content | number_of_words | divided_by: 200 | plus: 1 }} min read
+                    </span>
+                </div>
+                <h2 class="featured-post-title">
+                    <a href="{{ featured_post.url | relative_url }}">{{ featured_post.title }}</a>
+                </h2>
+                {% if featured_post.description %}
+                <p class="featured-post-description">{{ featured_post.description }}</p>
+                {% else %}
+                <p class="featured-post-description">{{ featured_post.excerpt | strip_html | truncate: 200 }}</p>
+                {% endif %}
+                <div class="featured-post-footer">
+                    {% if featured_post.tags %}
+                    <div class="featured-post-tags">
+                        {% for tag in featured_post.tags limit:4 %}
+                        <span class="tag">{{ tag }}</span>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                    <a href="{{ featured_post.url | relative_url }}" class="btn btn-primary">
+                        Read Article <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </article>
+        {% endif %}
+
+        <!-- All Blog Posts -->
+        <div class="blog-posts-section">
+            <div class="section-header">
+                <h2 class="section-title">All Articles</h2>
+                <div class="blog-filters">
+                    <button class="filter-btn active" data-filter="all">
+                        All Posts
+                    </button>
+                    <button class="filter-btn" data-filter="AI">
+                        AI/ML
+                    </button>
+                    <button class="filter-btn" data-filter="RAG">
+                        RAG Systems
+                    </button>
+                    <button class="filter-btn" data-filter="Medical AI">
+                        Medical AI
+                    </button>
+                    <button class="filter-btn" data-filter="Production">
+                        Production ML
+                    </button>
+                </div>
+            </div>
+
+            <div class="blog-posts-grid">
+                {% for post in site.posts %}
+                <article class="blog-card fade-in" data-categories="{{ post.categories | join: ' ' }}" data-tags="{{ post.tags | join: ' ' }}">
+                    <div class="blog-card-header">
+                        <time datetime="{{ post.date | date_to_xmlschema }}" class="blog-card-date">
+                            <i class="far fa-calendar"></i> {{ post.date | date: "%b %d, %Y" }}
+                        </time>
+                        <span class="blog-card-read-time">
+                            <i class="far fa-clock"></i> {{ post.content | number_of_words | divided_by: 200 | plus: 1 }} min
+                        </span>
+                    </div>
+
+                    <h3 class="blog-card-title">
+                        <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+                    </h3>
+
+                    {% if post.description %}
+                    <p class="blog-card-excerpt">{{ post.description }}</p>
+                    {% else %}
+                    <p class="blog-card-excerpt">{{ post.excerpt | strip_html | truncate: 150 }}</p>
+                    {% endif %}
+
+                    {% if post.tags %}
+                    <div class="blog-card-tags">
+                        {% for tag in post.tags limit:3 %}
+                        <span class="tag-small">{{ tag }}</span>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+
+                    <a href="{{ post.url | relative_url }}" class="blog-card-link">
+                        Read more <i class="fas fa-arrow-right"></i>
+                    </a>
+                </article>
+                {% endfor %}
+
+                {% if site.posts.size == 0 %}
+                <div class="no-posts">
+                    <i class="fas fa-file-alt"></i>
+                    <p>No blog posts yet. Check back soon for technical content on AI/ML!</p>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+
+        <!-- Newsletter Signup (Optional) -->
+        <aside class="blog-newsletter fade-in">
+            <div class="newsletter-content">
+                <h2>Stay Updated</h2>
+                <p>Get notified when I publish new articles on AI, ML, and production systems.</p>
+                <div class="newsletter-form">
+                    <a href="https://medium.com/@huzefanalkheda" target="_blank" class="btn btn-secondary">
+                        <i class="fab fa-medium"></i> Follow on Medium
+                    </a>
+                    <a href="https://linkedin.com/in/huzefanalkheda" target="_blank" class="btn btn-secondary">
+                        <i class="fab fa-linkedin"></i> Connect on LinkedIn
+                    </a>
+                </div>
+            </div>
+        </aside>
+    </div>
+</section>
+
+<script>
+// Blog Filter Functionality
+document.addEventListener('DOMContentLoaded', () => {
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const blogCards = document.querySelectorAll('.blog-card');
+
+    filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const filter = button.dataset.filter;
+
+            // Update active button
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+
+            // Filter cards
+            blogCards.forEach(card => {
+                if (filter === 'all') {
+                    card.style.display = 'flex';
+                } else {
+                    const categories = card.dataset.categories || '';
+                    const tags = card.dataset.tags || '';
+                    const searchText = `${categories} ${tags}`.toLowerCase();
+
+                    if (searchText.includes(filter.toLowerCase())) {
+                        card.style.display = 'flex';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                }
+            });
+        });
+    });
+});
+</script>

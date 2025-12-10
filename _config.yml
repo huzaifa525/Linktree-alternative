@@ -1,0 +1,78 @@
+# Jekyll Configuration for Huzefa Nalkheda Wala Portfolio
+
+# Site Settings
+title: "Huzefa Nalkheda Wala - AI Engineer Blog"
+description: "Technical blog on Medical AI, Large Language Models, RAG systems, and Production ML deployment"
+author: "Huzefa Nalkheda Wala"
+email: "huzaifanalkheda@gmail.com"
+url: "https://huzefanalkhedawala.in"
+baseurl: ""
+
+# Social Links
+github_username: huzaifa525
+linkedin_username: huzefanalkheda
+twitter_username: huzefanalkheda
+
+# Build Settings
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    block:
+      line_numbers: true
+
+# Permalink Structure
+permalink: /blog/:year/:month/:day/:title/
+
+# Collections
+collections:
+  posts:
+    output: true
+    permalink: /blog/:year/:month/:day/:title/
+
+# Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+# Exclude from build
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - .sass-cache
+  - .jekyll-cache
+  - README.md
+
+# SEO Settings
+twitter:
+  username: huzefanalkheda
+  card: summary_large_image
+
+social:
+  name: Huzefa Nalkheda Wala
+  links:
+    - https://linkedin.com/in/huzefanalkheda
+    - https://github.com/huzaifa525
+    - https://huggingface.co/huzaifa525
+    - https://medium.com/@huzefanalkheda
+
+# Google Analytics (add your ID if you have one)
+# google_analytics: UA-XXXXXXXXX-X
+
+# Disqus Comments (optional)
+# disqus:
+#   shortname: your-disqus-shortname
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      author: "Huzefa Nalkheda Wala"
+      comments: false

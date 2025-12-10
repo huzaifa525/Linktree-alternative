@@ -1,0 +1,145 @@
+---
+layout: default
+---
+
+<section class="blog-post-container">
+    <div class="container">
+        <!-- Blog Post Header -->
+        <article class="blog-post fade-in">
+            <header class="post-header">
+                <a href="{{ site.baseurl }}/blog/" class="back-to-blog">
+                    <i class="fas fa-arrow-left"></i> Back to Blog
+                </a>
+
+                <div class="post-meta-top">
+                    <time datetime="{{ page.date | date_to_xmlschema }}" class="post-date">
+                        <i class="far fa-calendar"></i> {{ page.date | date: "%B %d, %Y" }}
+                    </time>
+                    <span class="post-read-time">
+                        <i class="far fa-clock"></i> {{ content | number_of_words | divided_by: 200 | plus: 1 }} min read
+                    </span>
+                </div>
+
+                <h1 class="post-title">{{ page.title }}</h1>
+
+                {% if page.description %}
+                <p class="post-description">{{ page.description }}</p>
+                {% endif %}
+
+                <div class="post-meta">
+                    <div class="post-author">
+                        <img src="{{ site.baseurl }}/huzefa.jpg" alt="Huzefa Nalkheda Wala" class="author-avatar">
+                        <div class="author-info">
+                            <span class="author-name">{{ page.author | default: site.author }}</span>
+                            <span class="author-title">AI Product Engineer at CleverFlow</span>
+                        </div>
+                    </div>
+
+                    {% if page.tags %}
+                    <div class="post-tags">
+                        {% for tag in page.tags %}
+                        <span class="tag">{{ tag }}</span>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                </div>
+            </header>
+
+            <!-- Blog Post Content -->
+            <div class="post-content">
+                {{ content }}
+            </div>
+
+            <!-- Blog Post Footer -->
+            <footer class="post-footer">
+                <div class="post-share">
+                    <h3>Share this post</h3>
+                    <div class="share-buttons">
+                        <a href="https://twitter.com/intent/tweet?text={{ page.title | uri_escape }}&url={{ site.url }}{{ page.url }}&via=huzefanalkheda"
+                           target="_blank"
+                           class="share-btn twitter"
+                           aria-label="Share on Twitter">
+                            <i class="fab fa-twitter"></i> Twitter
+                        </a>
+                        <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ site.url }}{{ page.url }}"
+                           target="_blank"
+                           class="share-btn linkedin"
+                           aria-label="Share on LinkedIn">
+                            <i class="fab fa-linkedin"></i> LinkedIn
+                        </a>
+                        <a href="https://www.facebook.com/sharer/sharer.php?u={{ site.url }}{{ page.url }}"
+                           target="_blank"
+                           class="share-btn facebook"
+                           aria-label="Share on Facebook">
+                            <i class="fab fa-facebook"></i> Facebook
+                        </a>
+                        <button onclick="copyToClipboard('{{ site.url }}{{ page.url }}')"
+                                class="share-btn copy"
+                                aria-label="Copy link">
+                            <i class="fas fa-link"></i> Copy Link
+                        </button>
+                    </div>
+                </div>
+
+                <div class="author-bio">
+                    <img src="{{ site.baseurl }}/huzefa.jpg" alt="Huzefa Nalkheda Wala" class="author-bio-avatar">
+                    <div class="author-bio-content">
+                        <h3>About the Author</h3>
+                        <h4>{{ page.author | default: site.author }}</h4>
+                        <p>AI Product Engineer at CleverFlow specializing in Medical AI, Large Language Models, and RAG systems. Patent holder (Design No. 375474-001) and IIT Ropar graduate. Creator of MedGenius LLaMA medical AI model.</p>
+                        <div class="author-social">
+                            <a href="https://github.com/huzaifa525" target="_blank" aria-label="GitHub">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="https://linkedin.com/in/huzefanalkheda" target="_blank" aria-label="LinkedIn">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            <a href="https://huggingface.co/huzaifa525" target="_blank" aria-label="HuggingFace">
+                                <i class="fas fa-face-smile"></i>
+                            </a>
+                            <a href="https://medium.com/@huzefanalkheda" target="_blank" aria-label="Medium">
+                                <i class="fab fa-medium"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </article>
+
+        <!-- Related Posts -->
+        {% if site.related_posts.size > 0 %}
+        <aside class="related-posts">
+            <h2>Related Posts</h2>
+            <div class="related-posts-grid">
+                {% for post in site.related_posts limit:3 %}
+                <a href="{{ post.url | relative_url }}" class="related-post-card">
+                    <time datetime="{{ post.date | date_to_xmlschema }}">
+                        {{ post.date | date: "%b %d, %Y" }}
+                    </time>
+                    <h3>{{ post.title }}</h3>
+                    {% if post.description %}
+                    <p>{{ post.description | truncate: 120 }}</p>
+                    {% endif %}
+                    <span class="read-more">Read more <i class="fas fa-arrow-right"></i></span>
+                </a>
+                {% endfor %}
+            </div>
+        </aside>
+        {% endif %}
+    </div>
+</section>
+
+<script>
+function copyToClipboard(text) {
+    navigator.clipboard.writeText(text).then(() => {
+        const btn = event.target.closest('.share-btn');
+        const originalHTML = btn.innerHTML;
+        btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+        btn.style.background = 'linear-gradient(135deg, #00ff88, #00d4ff)';
+        setTimeout(() => {
+            btn.innerHTML = originalHTML;
+            btn.style.background = '';
+        }, 2000);
+    });
+}
+</script>
