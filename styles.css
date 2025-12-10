@@ -1804,17 +1804,55 @@ main {
 .post-content pre::before {
     content: attr(data-lang);
     position: absolute;
-    top: 0;
-    right: 0;
-    background: linear-gradient(135deg, var(--neon-blue), var(--neon-purple));
-    color: var(--bg-primary);
-    padding: 0.3rem 1rem;
-    border-bottom-left-radius: 8px;
-    border-top-right-radius: 10px;
+    top: 0.5rem;
+    left: 1rem;
+    color: var(--neon-blue);
+    padding: 0;
     font-size: 0.75rem;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 1px;
+    z-index: 10;
+}
+
+/* Copy button for code blocks */
+.code-block-wrapper {
+    position: relative;
+}
+
+.copy-code-btn {
+    position: absolute;
+    top: 0.5rem;
+    right: 1rem;
+    background: rgba(0, 212, 255, 0.1);
+    border: 1px solid rgba(0, 212, 255, 0.3);
+    color: var(--neon-blue);
+    padding: 0.4rem 0.8rem;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.copy-code-btn:hover {
+    background: rgba(0, 212, 255, 0.2);
+    border-color: var(--neon-blue);
+    transform: translateY(-2px);
+}
+
+.copy-code-btn.copied {
+    background: rgba(0, 255, 136, 0.2);
+    border-color: #00ff88;
+    color: #00ff88;
+}
+
+.copy-code-btn i {
+    font-size: 0.85rem;
 }
 
 .post-content pre[class*="language-python"]::before {
@@ -2262,6 +2300,12 @@ main {
         width: fit-content;
     }
 
+    .blog-post {
+        padding: var(--space-xl) var(--space-lg);
+        border-radius: 15px;
+        margin: 0 0.5rem;
+    }
+
     .post-title {
         font-size: 1.8rem;
     }
@@ -2269,6 +2313,17 @@ main {
     .post-meta {
         flex-direction: column;
         align-items: flex-start;
+    }
+
+    .copy-code-btn {
+        top: 0.5rem;
+        right: 0.5rem;
+        padding: 0.3rem 0.6rem;
+        font-size: 0.7rem;
+    }
+
+    .copy-code-btn i {
+        font-size: 0.75rem;
     }
 
     .post-content {

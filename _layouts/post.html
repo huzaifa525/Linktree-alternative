@@ -130,6 +130,7 @@ layout: default
 </section>
 
 <script>
+// Copy to clipboard for share buttons
 function copyToClipboard(text) {
     navigator.clipboard.writeText(text).then(() => {
         const btn = event.target.closest('.share-btn');
@@ -142,4 +143,50 @@ function copyToClipboard(text) {
         }, 2000);
     });
 }
+
+// Add copy buttons to all code blocks
+document.addEventListener('DOMContentLoaded', () => {
+    const codeBlocks = document.querySelectorAll('.post-content pre');
+
+    codeBlocks.forEach((block, index) => {
+        // Wrap pre in a div for positioning
+        const wrapper = document.createElement('div');
+        wrapper.className = 'code-block-wrapper';
+        block.parentNode.insertBefore(wrapper, block);
+        wrapper.appendChild(block);
+
+        // Create copy button
+        const copyBtn = document.createElement('button');
+        copyBtn.className = 'copy-code-btn';
+        copyBtn.innerHTML = '<i class="fas fa-copy"></i> Copy';
+        copyBtn.setAttribute('aria-label', 'Copy code to clipboard');
+
+        // Add click handler
+        copyBtn.addEventListener('click', () => {
+            const code = block.querySelector('code');
+            const text = code ? code.textContent : block.textContent;
+
+            navigator.clipboard.writeText(text).then(() => {
+                // Show success state
+                copyBtn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+                copyBtn.classList.add('copied');
+
+                // Reset after 2 seconds
+                setTimeout(() => {
+                    copyBtn.innerHTML = '<i class="fas fa-copy"></i> Copy';
+                    copyBtn.classList.remove('copied');
+                }, 2000);
+            }).catch(err => {
+                console.error('Failed to copy:', err);
+                copyBtn.innerHTML = '<i class="fas fa-times"></i> Failed';
+                setTimeout(() => {
+                    copyBtn.innerHTML = '<i class="fas fa-copy"></i> Copy';
+                }, 2000);
+            });
+        });
+
+        // Insert copy button
+        wrapper.insertBefore(copyBtn, block);
+    });
+});
 </script>
