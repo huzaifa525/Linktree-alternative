@@ -71,4 +71,42 @@
         <priority>0.8</priority>
     </url>
 
+    <!-- Blog - Technical Articles -->
+    <url>
+        <loc>https://huzefanalkhedawala.in/blog/</loc>
+        <lastmod>2025-12-11</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
+    <!-- Blog Posts - Individual Articles -->
+    <url>
+        <loc>https://huzefanalkhedawala.in/blog/2025/01/15/how-to-build-production-rag-systems/</loc>
+        <lastmod>2025-01-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://huzefanalkhedawala.in/blog/2025/01/10/fine-tuning-llama-medical-ai/</loc>
+        <lastmod>2025-01-10</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://huzefanalkhedawala.in/blog/2025/01/05/vector-database-optimization-rag/</loc>
+        <lastmod>2025-01-05</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- RSS Feed -->
+    <url>
+        <loc>https://huzefanalkhedawala.in/feed.xml</loc>
+        <lastmod>2025-12-11</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
 </urlset>
