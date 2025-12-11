@@ -8,20 +8,57 @@
     <!-- SEO Meta Tags -->
     <meta name="description" content="{{ page.description | default: site.description }}">
     <meta name="author" content="{{ page.author | default: site.author }}">
-    <meta name="keywords" content="{{ page.tags | join: ', ' }}">
+    <meta name="keywords" content="{{ page.tags | join: ', ' }}{{ site.keywords | join: ', ' }}">
 
-    <!-- Open Graph -->
-    <meta property="og:title" content="{{ page.title }}">
-    <meta property="og:description" content="{{ page.description | default: site.description }}">
-    <meta property="og:type" content="article">
+    <!-- Enhanced GEO Tags for AI Search Engines -->
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta name="AI:expertise" content="{{ site.author_details.expertise | join: ', ' }}">
+    <meta name="AI:role" content="{{ site.author_details.role }}">
+    <meta name="AI:organization" content="{{ site.author_details.organization }}">
+    <meta name="citation:author" content="{{ site.author }}">
+    <meta name="citation:title" content="{{ page.title }}">
+    <meta name="citation:publication_date" content="{{ page.date | date_to_xmlschema }}">
+
+    <!-- Open Graph (Enhanced) -->
+    <meta property="og:title" content="{{ page.title }} | {{ site.title }}">
+    <meta property="og:description" content="{{ page.description | default: site.description | truncate: 160 }}">
+    <meta property="og:type" content="{% if page.layout == 'post' %}article{% else %}website{% endif %}">
     <meta property="og:url" content="{{ site.url }}{{ page.url }}">
-    <meta property="og:image" content="{{ site.url }}/huzefa.jpg">
+    <meta property="og:image" content="{{ site.url }}{% if page.image %}{{ page.image }}{% else %}/huzefa.jpg{% endif %}">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="{{ site.title }}">
+    <meta property="og:locale" content="en_US">
+    {% if page.layout == 'post' %}
+    <meta property="article:published_time" content="{{ page.date | date_to_xmlschema }}">
+    <meta property="article:modified_time" content="{{ page.last_modified_at | default: page.date | date_to_xmlschema }}">
+    <meta property="article:author" content="{{ page.author | default: site.author }}">
+    {% for tag in page.tags %}
+    <meta property="article:tag" content="{{ tag }}">
+    {% endfor %}
+    {% endif %}
 
-    <!-- Twitter Card -->
+    <!-- Twitter Card (Enhanced) -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:creator" content="@huzefanalkheda">
-    <meta name="twitter:title" content="{{ page.title }}">
-    <meta name="twitter:description" content="{{ page.description | default: site.description }}">
+    <meta name="twitter:site" content="@{{ site.twitter.username }}">
+    <meta name="twitter:creator" content="@{{ site.twitter.username }}">
+    <meta name="twitter:title" content="{{ page.title }} | {{ site.title }}">
+    <meta name="twitter:description" content="{{ page.description | default: site.description | truncate: 160 }}">
+    <meta name="twitter:image" content="{{ site.url }}{% if page.image %}{{ page.image }}{% else %}/huzefa.jpg{% endif %}">
+    <meta name="twitter:image:alt" content="{{ page.title }}">
+    <meta name="twitter:label1" content="Written by">
+    <meta name="twitter:data1" content="{{ page.author | default: site.author }}">
+    {% if page.layout == 'post' %}
+    <meta name="twitter:label2" content="Reading time">
+    <meta name="twitter:data2" content="{{ content | number_of_words | divided_by: 200 | plus: 1 }} min read">
+    {% endif %}
+
+    <!-- Additional SEO -->
+    <link rel="canonical" href="{{ site.url }}{{ page.url }}">
+    <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ site.url }}/feed.xml">
+    <meta name="theme-color" content="#00d4ff">
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="{{ site.baseurl }}/favicon.svg">
@@ -39,7 +76,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
 
-    <!-- Jekyll SEO Tag -->
+    <!-- Jekyll SEO Tag (loads JSON-LD structured data automatically) -->
     {% seo %}
 </head>
 <body>

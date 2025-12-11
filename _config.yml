@@ -34,9 +34,25 @@ collections:
 
 # Plugins
 plugins:
+  # Core SEO Plugins
   - jekyll-feed
   - jekyll-seo-tag
   - jekyll-sitemap
+
+  # Content Organization
+  - jekyll-archives
+  - jekyll-paginate-v2
+  - jekyll-redirect-from
+
+  # Performance
+  - jekyll-minifier
+  - jekyll-responsive-image
+
+  # Enhanced Features
+  - jekyll-compose
+  - jekyll-mentions
+  - jekyll-last-modified-at
+  - jemoji
 
 # Exclude from build
 exclude:
@@ -47,12 +63,21 @@ exclude:
   - .sass-cache
   - .jekyll-cache
   - README.md
+  - BLOG_SETUP.md
+  - SEO_FEEDS_INFO.md
 
-# SEO Settings
+# ===== SEO & GEO OPTIMIZATION SETTINGS =====
+
+# SEO Tag Configuration
+logo: /huzefa.jpg
+image: /huzefa.jpg
+
+# Twitter Cards
 twitter:
   username: huzefanalkheda
   card: summary_large_image
 
+# Social Profiles (for Rich Snippets)
 social:
   name: Huzefa Nalkheda Wala
   links:
@@ -60,13 +85,142 @@ social:
     - https://github.com/huzaifa525
     - https://huggingface.co/huzaifa525
     - https://medium.com/@huzefanalkheda
+    - https://twitter.com/huzefanalkheda
+
+# Facebook Open Graph
+facebook:
+  app_id:  # Add if you have Facebook app
+  publisher:  # Add Facebook page URL if available
+
+# Webmaster Verification (add when ready)
+webmaster_verifications:
+  google: # Add Google Search Console verification code
+  bing: # Add Bing Webmaster verification code
+  alexa: # Add Alexa verification code
+  yandex: # Add Yandex verification code
 
 # Google Analytics (add your ID if you have one)
 # google_analytics: UA-XXXXXXXXX-X
+# google_analytics_4: G-XXXXXXXXXX
 
 # Disqus Comments (optional)
 # disqus:
 #   shortname: your-disqus-shortname
+
+# ===== JEKYLL ARCHIVES CONFIGURATION =====
+# Generates archive pages for categories and tags
+jekyll-archives:
+  enabled:
+    - categories
+    - tags
+  layouts:
+    category: archive
+    tag: archive
+  permalinks:
+    category: '/blog/category/:name/'
+    tag: '/blog/tag/:name/'
+
+# ===== PAGINATION CONFIGURATION =====
+# Advanced pagination for blog listing
+pagination:
+  enabled: true
+  per_page: 9
+  permalink: '/page/:num/'
+  title: ':title - Page :num'
+  limit: 0
+  sort_field: 'date'
+  sort_reverse: true
+  trail:
+    before: 2
+    after: 2
+
+# ===== JEKYLL MINIFIER =====
+# Minify HTML, CSS, JS for performance
+jekyll-minifier:
+  uglifier_args:
+    harmony: true
+  compress_css: true
+  compress_javascript: true
+  preserve_php: false
+  remove_spaces_inside_tags: true
+  remove_multi_spaces: true
+  remove_comments: true
+  remove_intertag_spaces: false
+  remove_quotes: false
+  compress_json_keys: false
+  simple_doctype: false
+  remove_script_attributes: false
+  remove_style_attributes: false
+  remove_link_attributes: false
+  remove_form_attributes: false
+  remove_input_attributes: false
+  remove_javascript_protocol: false
+  remove_http_protocol: false
+  remove_https_protocol: false
+  preserve_line_breaks: false
+  simple_boolean_attributes: false
+
+# ===== JEKYLL MENTIONS =====
+# Enable @username mentions
+jekyll-mentions:
+  base_url: https://github.com
+
+# ===== RESPONSIVE IMAGES =====
+# Generate responsive image sizes
+responsive_image:
+  template: _includes/responsive-image.html
+  sizes:
+    - width: 320
+    - width: 480
+    - width: 800
+    - width: 1200
+  output_path_format: assets/images/resized/%{dirname}/%{basename}-%{width}.%{extension}
+  save_to_source: false
+  cache: false
+  strip: true
+  default_quality: 85
+
+# ===== GEO OPTIMIZATION SETTINGS =====
+# AI Search Engine Optimization (ChatGPT, Perplexity, Claude, Gemini)
+
+# Structured author information for AI citations
+author_details:
+  name: "Huzefa Nalkheda Wala"
+  role: "AI Product Engineer"
+  organization: "CleverFlow"
+  expertise:
+    - "Large Language Models (LLaMA, GPT, LoRA fine-tuning)"
+    - "Retrieval Augmented Generation (RAG) systems"
+    - "Medical AI and Healthcare NLP"
+    - "Computer Vision and OCR"
+    - "Production ML deployment"
+  credentials:
+    - "Patent: AI-powered medical chatbot system"
+    - "B.Tech Computer Engineering, IIT Ropar"
+    - "36 months production AI/ML experience"
+  contact: "huzaifanalkheda@gmail.com"
+
+# Keywords for AI discovery (GEO optimization)
+keywords:
+  - "AI engineer"
+  - "machine learning"
+  - "LLaMA fine-tuning"
+  - "RAG systems"
+  - "medical AI"
+  - "production ML"
+  - "vector databases"
+  - "ChatGPT"
+  - "Perplexity"
+  - "Claude AI"
+
+# Technical focus areas (helps AI understand expertise)
+technical_focus:
+  - "How to build production RAG systems"
+  - "Fine-tuning LLaMA for medical AI"
+  - "Optimizing vector database performance"
+  - "Deploying AI models to production"
+  - "Medical chatbot development"
+  - "OCR pipeline implementation"
 
 # Defaults
 defaults:
